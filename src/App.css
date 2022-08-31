@@ -1,38 +1,138 @@
+/* reset css  */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+button {
+  background-color: #fff;
+  border: none;
+  outline: none;
+}
+/* reset / */
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+:root {
+  --text1: #212529;
+  --text2: #495057;
+  --text3: #868E96;
+  --text4: #CED4DA;
+  --border1: #343A40;
+  --border2: #ADB5BD;
+  --border3: #DEE2E6;
+  --border4: #F1F3F5;
+  --primary1: #12B886;
+  --primary2: #20C997;
+  --destructive1: #FF6B6B;
+  --destructive2: #FF8787
+}
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text2);
+  letter-spacing: -1px;
+}
 .App {
-  text-align: center;
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 80px;
+  position: relative;
 }
-
-.App-link {
-  color: #61dafb;
+header .nav {
+  display: flex;
+  align-items: center;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header .menu {
+  position: absolute;
+  right: 0;
+  top: 80px;
+  box-shadow: 1px 1px 6px rgba(0,0,0,0.2);
+  padding: 1.5rem;
+  width: 160px;
+  line-height: 30px;
+  display: none;
+}
+header .menu.on {
+  display: block;
+}
+.navitem {
+  margin: 0 0.5rem;
+  cursor: pointer;
+}
+.nav button {
+  background-color: none;
+  border-radius: 15px;
+  line-height: 30px;
+  border: 1px solid var(--border1);
+  padding: 0 1rem;
+  outline: none;
+}
+.nav button:hover {
+  background-color: var(--border1);
+  color: #fff;
+}
+.nav .user {
+  display: inline-block;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: var(--primary1);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 2.5rem;
+  color: #fff;
+}
+.islogin {
+  display: none;
+}
+.islogin.on {
+  display: block;
 }
