@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector } from 'react-redux/es/exports';
+import Lists from './Lists';
 
 const Main = () => {
-  const lists = useSelector(state=>state.bloglists)
+  const lists = useSelector(state=>state.bloglists.lists)
   console.log(lists);
   return (
-    <div>
-    </div>
+    <Lists lists={lists} listname="mainList"/>
   );
 };
 export default Main;
