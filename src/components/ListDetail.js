@@ -1,7 +1,10 @@
-import { useEffect, useState } from 'react';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { selectList } from '../modules/bloglists';
+import PostBtn from './PostBtn';
+import Profile from './Profile';
+import Comment from './Comment';
 const ListDetail = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
@@ -18,6 +21,12 @@ const ListDetail = () => {
             <div className='contents'>
                 {list.desc}
             </div>
+            <Profile userId={list.userId}/>
+            <div className='postBtnDiv'>
+                <PostBtn isLeft={true}/>
+                <PostBtn isLeft={false}/>
+            </div>
+            <Comment />
         </div>
     )
 }

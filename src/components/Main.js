@@ -4,7 +4,6 @@ import Lists from './Lists';
 
 const Main = () => {
   const lists = useSelector(state=>state.bloglists.lists)
-  console.log(lists);
   return (
     <Lists lists={lists} listname="mainList"/>
   );

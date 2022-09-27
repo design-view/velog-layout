@@ -1,9 +1,17 @@
 import React,{ useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { isLoginClick } from '../modules/members';
 
 const Header = () => {
-    const [ menuOn, setMenuOn ] = useState(false)
-    const [ isLogin, setIsLogin ] = useState(false)
+    const [ menuOn, setMenuOn ] = useState(false);
+    const loginm = useSelector(state=>state.members.loginMember)
+    const isLogin = useSelector(state=>state.members.isLogin);
+    const dispatch  = useDispatch();
+    const onLoginClick = () => {
+      dispatch(isLoginClick(true))
+    }
+    
     return (
     <header>
       <h1>
@@ -17,16 +25,20 @@ const Header = () => {
       </h1>
       <div className='nav'>
         <div className='navitem search'>
+          <Link to="/search">
           <svg width="17" height="17" viewBox="0 0 17 17">
             <path fillRule="evenodd" 
-            d="M13.66 7.36a6.3 6.3 0 1 1-12.598 0 6.3 6.3 0 0 1 12.598 0zm-1.73 5.772a7.36 7.36 0 1 1 1.201-1.201l3.636 3.635c.31.31.31.815 0 1.126l-.075.075a.796.796 0 0 1-1.126 0l-3.636-3.635z" clipRule="evenodd" fill="currentColor"></path></svg>
+            d="M13.66 7.36a6.3 6.3 0 1 1-12.598 0 6.3 6.3 0 0 1 12.598 0zm-1.73 5.772a7.36 7.36 0 1 1 1.201-1.201l3.636 3.635c.31.31.31.815 0 1.126l-.075.075a.796.796 0 0 1-1.126 0l-3.636-3.635z" clipRule="evenodd" fill="currentColor">
+            </path>
+          </svg>
+          </Link>
         </div>
-        <button className='navitem' onClick={()=>setIsLogin(true)}>
+        <button className='navitem' onClick={onLoginClick}>
             {isLogin ? "새 글 작성" : "로그인"}
         </button>
         <div className={`navitem islogin ${isLogin ? "on" : ""}`}>
           <div onClick={()=>setMenuOn(!menuOn)}>
-          <span className='user'>주호</span>
+          <span className='user'>{loginm.userId}</span>
           <svg stroke="currentColor" fill="currentColor" strokeWidth="0" viewBox="0 0 24 24" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 10l5 5 5-5z">
             </path>
